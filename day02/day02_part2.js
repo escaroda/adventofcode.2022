@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require("path");
 
 const myWinChoice = {
-  1: 2,
-  2: 3,
-  3: 1,
+  1: 2, // choose paper to beat rock
+  2: 3, // choose scissors to beat paper
+  3: 1, // choose rock to beat scissors
 };
 
 const myLossChoice = {
