@@ -29,7 +29,6 @@ fs.readFile(path.resolve(__dirname, './input'), 'utf8', (err, data) => {
     propagateSize(pointer['..'], size);
   }
 
-
   const createDirOfFile = ([ sizeOrDir, name ]) => {
     if (sizeOrDir === 'dir') {
       currentPointer[name] = { '..': currentPointer, _size: 0 };
@@ -39,6 +38,7 @@ fs.readFile(path.resolve(__dirname, './input'), 'utf8', (err, data) => {
     }
   }
 
+  // construct tree
   for (const line of lines) {
     if (line[0] === '$') {
       const [, command, name] = line;
@@ -53,6 +53,7 @@ fs.readFile(path.resolve(__dirname, './input'), 'utf8', (err, data) => {
 
   let sumOfSizes = 0;
 
+  // traverse tree
   const stack = [tree];
   while (stack.length) {
     const folder = stack.pop();

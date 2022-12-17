@@ -30,7 +30,6 @@ fs.readFile(path.resolve(__dirname, './input'), 'utf8', (err, data) => {
     propagateSize(pointer['..'], size);
   }
 
-
   const createDirOfFile = ([ sizeOrDir, name ]) => {
     if (sizeOrDir === 'dir') {
       currentPointer[name] = { '..': currentPointer, _size: 0 };
